@@ -1,0 +1,40 @@
+extends layout
+
+block content
+    table(class='table table-striped')
+        thead
+            tr
+                th(scope='col')
+                    a(href='https://morotenopiskan.se/lunch/' target='_blank') Moroten Och Piskan
+                th(scope= 'col') Dagens
+                th(scope= 'col') Veg
+        tbody
+            tr
+                th(scope='col')
+                td= mopDagens
+                td= mopVeg
+        thead
+            tr
+                th(scope='col')
+                    a(href='https://www.finninn.se/lunch-meny/' target='_blank') Finn Inn
+                th(scope= 'col') Dagens
+                th(scope= 'col') Veg
+                th(scope= 'col') Sallad
+        tbody
+            tr
+                th(scope='col') 88kr
+                td= finnDagens
+                td= finnVeg
+                td= finnSallad
+
+        thead
+            tr
+                th(scope='col')
+                    a(href='https://www.bryggancafe.se/' target='_blank') Bryggan Café
+                th(scope= 'col') Dagens
+                th(scope= 'col') Veg
+        tbody
+            tr
+                th(scope='col') 89kr
+                td= brygganDagens
+                td= brygganVeg
