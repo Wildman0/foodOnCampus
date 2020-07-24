@@ -1,11 +1,12 @@
 extends layout
 
 block content
-    table(class='table table-striped')
+    h5(class='text-center' style="margin-top: 5px") Food on campus: #{date}
+    table(class='table table-striped table-sm')
         thead
             tr
                 th(scope='col')
-                    a(href='https://morotenopiskan.se/lunch/' target='_blank') Moroten Och Piskan
+                    a(href='https://morotenopiskan.se/lunch/' target='_blank' rel='noopener') Moroten Och Piskan
                 th(scope= 'col') Dagens
                 th(scope= 'col') Veg
         tbody
@@ -16,10 +17,10 @@ block content
         thead
             tr
                 th(scope='col')
-                    a(href='https://www.finninn.se/lunch-meny/' target='_blank') Finn Inn
+                    a(href='https://www.finninn.se/lunch-meny/' target='_blank' rel='noopener') Finn Inn
                 th(scope= 'col') Dagens
                 th(scope= 'col') Veg
-                th(scope= 'col') Sallad
+                th(scope= 'col') "Sallad"
         tbody
             tr
                 th(scope='col') 88kr
@@ -30,7 +31,7 @@ block content
         thead
             tr
                 th(scope='col')
-                    a(href='https://www.bryggancafe.se/' target='_blank') Bryggan Café
+                    a(href='https://www.bryggancafe.se/' target='_blank' rel='noopener') Bryggan Café
                 th(scope= 'col') Dagens
                 th(scope= 'col') Veg
         tbody
@@ -38,3 +39,25 @@ block content
                 th(scope='col') 89kr
                 td= brygganDagens
                 td= brygganVeg
+        thead
+            tr
+                th(scope='col')
+                    a(href='http://restauranghojdpunkten.se/meny' target='_blank' rel='noopener') Höjdpunkten
+                th(scope='col') Dagens
+                th(scope='col') Dagens 2
+        tbody
+            tr
+                th(scope='col') 87kr
+                td= hojdpunktenDagens
+                td= hojdpunktenDagens2
+        thead
+            tr
+                th(scope='col')
+                    a(href='http://restaurangedison.se/lunch' target='_blank' rel='noopener') Edison
+                th(scope='col') Dagens
+                th(scope='col') Veg
+        tbody
+            tr
+                th(scope='col') 90kr
+                td= edisonDagens
+                td= edisonVeg
