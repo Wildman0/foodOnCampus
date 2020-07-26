@@ -11,7 +11,6 @@ router.get("/", function (req, res) {
     mopDagens: foodObject.mop.dagens,
     mopVeg: foodObject.mop.veg,
     finnDagens: foodObject.finnInn.dagens,
-    finnSallad: foodObject.finnInn.sallad,
     finnVeg: foodObject.finnInn.veg,
     brygganDagens: foodObject.bryggan.dagens,
     brygganVeg: foodObject.bryggan.veg,

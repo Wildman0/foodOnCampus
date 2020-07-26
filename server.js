@@ -7,7 +7,7 @@ const indexRoute = require("./routes/indexRoute");
 
 const finnInnUrl = "https://www.finninn.se/lunch-meny/";
 const mopUrl =
-  "https://web.archive.org/web/20190404210917/http://morotenopiskan.se:80/lunch/";
+  "https://morotenopiskan.se/lunch/";
 const brygganUrl = "https://www.bryggancafe.se/";
 const hojdpunktenUrl = "http://restauranghojdpunkten.se/meny";
 const edisonUrl = "http://restaurangedison.se/lunch";
@@ -46,8 +46,7 @@ async function init() {
     },
     finnInn: {
       dagens: finnInnMenu[0],
-      sallad: finnInnMenu[1],
-      veg: finnInnMenu[2],
+      veg: finnInnMenu[1],
     },
     bryggan: {
       dagens: brygganMenu[0],
@@ -76,11 +75,11 @@ async function init() {
     if (day === 0) {
       return ["-", "-", "-"];
     }
-    //FinnInnWeekdays are +5
+    //FinnInnWeekdays are +4
     let finnInnWeekday = day <= 5 ? day + 4 : 0;
     let splitWeekdayMenu = menu[finnInnWeekday].split("\n");
     //index 3, 6, 8 contain Dagens, Sallad, Veg
-    return [splitWeekdayMenu[3], splitWeekdayMenu[6], splitWeekdayMenu[8]];
+    return [splitWeekdayMenu[3], splitWeekdayMenu[8]];
   }
 
   async function getMopMenu() {
@@ -136,15 +135,12 @@ async function init() {
         (element) => element.innerText
       )
     );
-    let filteredMenu = menu[1].split("\n").filter((element) => element !== "");
-    if (day < 5) {
+    let cleanedMenu = menu[1].split("\n").filter((element) => element !== "");
+    let dayIndex = cleanedMenu.indexOf(cleanedMenu.filter(element => element.includes(27))[0]);
       return [
-        filteredMenu[day * 3].substring(3),
-        filteredMenu[day * 3 + 1].substring(3),
+        cleanedMenu[dayIndex + 1].substring(3),
+        cleanedMenu[dayIndex + 2].substring(3).includes('2.') ? cleanedMenu[dayIndex + 2].substring(3) : "-",
       ];
-    } else {
-      return noLunchArray;
-    }
   }
   async function getEdisonMenu() {
     const page = await browser.newPage();
