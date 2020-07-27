@@ -1,5 +1,5 @@
 # foodOnCampus
-A scraping site that gathers lunch menus from restaurants around the Lund University campus.
+A scraping site that gathers lunch menus from restaurants around the Lund University campus!
 
 The app does its job but large oppurtunities for improvement exist. Feel free to contribute!
 
